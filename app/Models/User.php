@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\CategoryUserPermission;
 
 class User extends Authenticatable
 {
@@ -42,4 +43,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function categoryUserPermissions()
+    {
+        return $this->hasMany(CategoryUserPermission::class);
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'category_user_permissions');
+    }
 }
