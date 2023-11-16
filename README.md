@@ -22,7 +22,6 @@ cd nexum-test-task
 ### 2. Set Up .env File based on docker-compose.yml
 ```
 cp .env.example .env
-
 ```
 I used **pgsql** for **DB_CONNECTION** and **DB_HOST**, and **5432** for **DB_PORT**, and setup **DB_PASSWORD**
 
