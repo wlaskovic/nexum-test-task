@@ -12,7 +12,6 @@ class CategoryUserPermission extends Model
     const UPLOAD = 2;
     const DOWNLOAD = 4;
     const BOTH = 6;
-    const CORE_PERMISSION = 20;
 
     public static function calculatePermission(array $permissions): int
     {
