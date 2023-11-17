@@ -27,7 +27,7 @@ class CategoryForm extends Form
         $this->parent_id = $this->isUpdating ? $category->parent_id : $category->id;
     }
 
-    public function save()
+    public function save(): void
     {
         DB::beginTransaction();
         try {

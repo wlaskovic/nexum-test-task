@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\CategoryUserPermission;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -44,12 +46,12 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function categoryUserPermissions()
+    public function categoryUserPermissions(): HasMany
     {
         return $this->hasMany(CategoryUserPermission::class);
     }
 
-    public function categories()
+    public function categories(): BelongsToMany
     {
         return $this->belongsToMany(Category::class, 'category_user_permissions');
     }

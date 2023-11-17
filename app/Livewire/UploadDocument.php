@@ -11,6 +11,7 @@ use App\Rules\CategoryPermissionRule;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\View\View;
 
 class UploadDocument extends Component
 {
@@ -24,7 +25,7 @@ class UploadDocument extends Component
     public $display_name;
     public $ext;
 
-    public function mount(Category $category)
+    public function mount(Category $category): void
     {
         $this->category_id = $category->id;
     }
@@ -76,7 +77,7 @@ class UploadDocument extends Component
         redirect()->to('/');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.upload-document');
     }

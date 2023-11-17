@@ -22,7 +22,7 @@ class ManagePermissions extends Component
         $this->category = $category;
     }
 
-    public function updatePermissions()
+    public function updatePermissions(): void
     {
         DB::beginTransaction();
         try {

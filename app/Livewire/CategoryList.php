@@ -5,7 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Category;
 use App\Models\Document;
-use Illuminate\Support\Facades\Log;
+use Illuminate\View\View;
 
 class CategoryList extends Component
 {
@@ -13,7 +13,7 @@ class CategoryList extends Component
     public $selectedCategory;
     public $documents;
 
-    public function render()
+    public function render(): View
     {
         $categories = Category::where('parent_id', null)->get();
 

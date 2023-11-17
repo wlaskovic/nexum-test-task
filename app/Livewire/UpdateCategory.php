@@ -9,12 +9,13 @@ use App\Models\CategoryUserPermission;
 use App\Rules\CategoryPermissionRule;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
+use Illuminate\View\View;
 
 class UpdateCategory extends Component
 {
     public CategoryForm $form;
 
-    public function mount(Category $category)
+    public function mount(Category $category): void
     {
         $this->form->isUpdating = true;
         $this->form->setCategory($category);
@@ -34,13 +35,12 @@ class UpdateCategory extends Component
         $this->form->update();
     }
     
-    public function delete()
+    public function delete(): void
     {
-Log::info('Delete: ' . json_encode($this->form->category));
         $this->form->category->delete();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.create-category');
     }

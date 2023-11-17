@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\CategoryUserPermission;
 use App\Models\Document;
-use App\Rules\CategoryPermissionRule;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
